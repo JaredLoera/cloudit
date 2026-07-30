@@ -1,0 +1,114 @@
+<section class="checkout-page bg-light">
+    <div class="container checkout-wrapper">
+
+        <!-- COLUMNA IZQUIERDA: Formulario y Mapa -->
+        <div class="location-column">
+            <h2 class="section-title-left">¿Dónde lo instalamos?</h2>
+            <p class="subtitle-left">Mueve el marcador en el mapa para indicar el punto exacto de tu domicilio.</p>
+
+            <form [formGroup]="checkoutForm" (ngSubmit)="procesarOrden()" class="location-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Código postal*</label>
+                        <input type="text" formControlName="cp" placeholder="Ej. 35000" maxlength="5"
+                            (blur)="onCpBlur()">
+                    </div>
+                    <div class="form-group">
+                        <label>Colonia*</label>
+                        <input type="text" formControlName="colonia" placeholder="Nombre de tu colonia">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label>Calle*</label>
+                        <input type="text" formControlName="calle" placeholder="Nombre de tu calle">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>No. Exterior*</label>
+                        <input type="text" formControlName="numExt">
+                    </div>
+                    <div class="form-group">
+                        <label>No. Interior (Opcional)</label>
+                        <input type="text" formControlName="numInt">
+                    </div>
+                </div>
+
+                <!-- MAPA INTERACTIVO -->
+                <div class="map-container">
+                    <div id="map"></div>
+                    <!-- Angular Binding para mostrar coordenadas en tiempo real -->
+                    <div class="map-coordinates">
+                        <span>
+                            <i class="fa-solid fa-location-crosshairs"></i>
+                            Lat: <span>{{ currentLat | number:'1.5-5' }}</span>,
+                            Lng: <span>{{ currentLng | number:'1.5-5' }}</span>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- COLUMNA DERECHA: Resumen de Compra -->
+        <div class="summary-column">
+
+            <div class="plan-card">
+                <div class="plan-card-header">
+                    <h3>Tu plan incluye:</h3>
+                </div>
+                <div class="plan-card-banner">
+                    <div class="banner-speed">
+                        <h2>50 Megas</h2>
+                        <p>Internet Asimétrico</p>
+                    </div>
+                    <div class="banner-icon">
+                        <i class="fa-solid fa-tower-broadcast"></i>
+                        <p>Radioenlace</p>
+                    </div>
+                </div>
+                <div class="plan-card-details">
+                    <div class="detail-item">
+                        <i class="fa-solid fa-wifi"></i> <span>Módem Wi-Fi Incluido</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-satellite-dish"></i> <span>Antena Receptora</span>
+                    </div>
+                </div>
+                <p class="plan-disclaimer">Enlace diseñado para zonas sin cobertura tradicional. Ideal para Home Office
+                    y Streaming en 4K.</p>
+            </div>
+
+            <div class="receipt-card">
+                <h3>Resumen de compra</h3>
+                <div class="receipt-row">
+                    <span>Instalación equipo:</span>
+                    <strong>Consultar viabilidad</strong>
+                </div>
+                <hr class="dashed">
+                <div class="receipt-row total">
+                    <span>Renta mensual</span>
+                    <span class="price-green">$ 599</span>
+                </div>
+                <hr class="dashed">
+
+                <!-- Botón Dinámico de Angular -->
+                <button type="button" class="btn-continue" (click)="procesarOrden()"
+                    [disabled]="isProcessing || orderSuccess"
+                    [style.background-color]="orderSuccess ? '#10b981' : null">
+
+                    <span *ngIf="!isProcessing && !orderSuccess">Continuar <i
+                            class="fa-solid fa-arrow-right"></i></span>
+                    <span *ngIf="isProcessing"><i class="fa-solid fa-circle-notch fa-spin"></i> Procesando...</span>
+                    <span *ngIf="orderSuccess">Orden Enviada <i class="fa-solid fa-check"></i></span>
+                </button>
+
+                <p class="receipt-terms">Al hacer clic en continuar, un asesor revisará la viabilidad técnica ("Línea de
+                    Vista") en base a las coordenadas proporcionadas y se pondrá en contacto contigo.</p>
+            </div>
+
+        </div>
+    </div>
+</section>

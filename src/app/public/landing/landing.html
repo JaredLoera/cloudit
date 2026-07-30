@@ -1,0 +1,209 @@
+<!-- NAV BAR -->
+<header class="navbar">
+  <div class="container nav-container">
+    <div class="logo">
+      <span class="logo-cloud">cloud<span class="logo-it">it</span></span>
+      <span class="logo-sub">Solutions MX</span>
+    </div>
+    
+    <!-- Botón Hamburguesa (Solo visible en móvil) -->
+    <button class="menu-toggle" (click)="toggleMenu()" aria-label="Abrir menú">
+      <i class="fa-solid" [ngClass]="isMenuOpen ? 'fa-xmark' : 'fa-bars'"></i>
+    </button>
+
+    <!-- Menú de Navegación -->
+    <nav class="nav-menu" [class.open]="isMenuOpen">
+      <!-- Agregamos (click)="toggleMenu()" para que se cierre automáticamente al elegir una opción -->
+      <a href="#inicio" (click)="toggleMenu()">Inicio</a>
+      <a href="#nosotros" (click)="toggleMenu()">Nosotros</a>
+      <a href="#soluciones" (click)="toggleMenu()">Soluciones</a>
+      <a routerLink="/networks" routerLinkActive="active" (click)="toggleMenu()">Internet</a>
+      <a href="#contacto" class="btn-nav" (click)="toggleMenu()">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section id="inicio" class="hero">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <h1>Equipos de última generación para potenciar tu negocio</h1>
+      <p>Consigue con nosotros la infraestructura tecnológica más avanzada del mercado para mejorar radicalmente los
+        servicios de tu empresa o negocio.</p>
+      <div class="hero-cta">
+        <a href="#soluciones" class="btn-primary">Ver Soluciones</a>
+        <a href="#contacto" class="btn-secondary">Cotizar Ahora</a>
+      </div>
+    </div>
+    <div class="hero-image-container">
+      <div class="ubiquiti-device-frame">
+        <img src="/u6.png" alt="Punto de Acceso Ubiquiti de última generación" class="ubiquiti-image">
+        <div class="led-pulse"></div>
+      </div>
+      <div class="device-label">Wi-Fi 7 Corporativo</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE NOSOTROS -->
+<section id="nosotros" class="about">
+  <div class="container">
+    <div class="about-card">
+      <h2>¿Quiénes Somos?</h2>
+      <p class="lead">Somos una empresa especializada en servicios y soluciones de Tecnologías de la Información (TI).
+      </p>
+
+      <p>Nos destacamos por llevar <strong>conectividad de alta velocidad a zonas donde los proveedores tradicionales no
+          llegan o tienen un servicio deficiente</strong>, asegurando que tu hogar o negocio tenga un enlace de internet
+        confiable y sin interrupciones.</p>
+
+      <p>Además, nos encargamos de integrar las mejores marcas del mercado (Ubiquiti, TP-Link Deco, Hikvision, Epcom,
+        Aruba, Cisco y más) para garantizar redes estables, seguridad perimetral inteligente y automatización óptima
+        tanto para sectores corporativos como residenciales.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NUESTRAS SOLUCIONES -->
+<section id="soluciones" class="solutions">
+  <div class="container">
+    <div class="section-title">
+      <h2>Nuestras Soluciones</h2>
+      <p>Infraestructura integral adaptada a las necesidades tecnológicas del futuro.</p>
+    </div>
+
+    <div class="solutions-grid">
+      <!-- Conectividad -->
+      <div class="solution-card">
+        <div class="icon-wrapper"><i class="fa-solid fa-globe"></i></div>
+        <h3>Internet & Microondas</h3>
+        <p>Enlaces estables de alta capacidad y soluciones dedicadas para zonas críticas.</p>
+      </div>
+
+      <div class="solution-card">
+        <div class="icon-wrapper"><i class="fa-solid fa-network-wired"></i></div>
+        <h3>Cableado Estructurado & Fibra</h3>
+        <p>Instalaciones y canalizaciones normalizadas de alta velocidad y durabilidad.</p>
+      </div>
+
+      <div class="solution-card">
+        <div class="icon-wrapper"><i class="fa-solid fa-phone-volume"></i></div>
+        <h3>Telefonía IP</h3>
+        <p>Conmutadores en la nube y comunicación interna corporativa optimizada.</p>
+      </div>
+
+      <!-- Seguridad -->
+      <div class="solution-card">
+        <div class="icon-wrapper"><i class="fa-solid fa-video"></i></div>
+        <h3>Videovigilancia (CCTV)</h3>
+        <p>Cámaras inteligentes con analíticas de video y visualización remota 24/7.</p>
+      </div>
+
+      <div class="solution-card">
+        <div class="icon-wrapper"><i class="fa-solid fa-key"></i></div>
+        <h3>Control de Accesos & Alarmas</h3>
+        <p>Biométricos, lectoras de proximidad y barreras vehiculares automatizadas.</p>
+      </div>
+
+      <!-- Automatización -->
+      <div class="solution-card">
+        <div class="icon-wrapper"><i class="fa-solid fa-house-laptop"></i></div>
+        <h3>Smart Home & IoT</h3>
+        <p>Automatización de espacios, sensores inteligentes y ecosistemas conectados.</p>
+      </div>
+
+      <!-- Energía -->
+      <div class="solution-card">
+        <div class="icon-wrapper"><i class="fa-solid fa-bolt"></i></div>
+        <h3>Sistemas de Energía</h3>
+        <p>Respaldos interactivos (UPS), inversores y protección contra descargas eléctricas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONA DE COBERTURA REGIONAL -->
+<section id="cobertura" class="coverage-regional">
+  <div class="container coverage-grid">
+
+    <div class="coverage-text">
+      <div class="badge-regional">Cobertura Local</div>
+      <h2>Conectando Gómez Palacio</h2>
+      <p class="lead">Llevamos conectividad de alta velocidad a zonas donde la infraestructura tradicional no alcanza o
+        es inestable.</p>
+      <p>Disfruta de un enlace dedicado, rápido y sin límites de descarga a un precio verdaderamente accesible. Nos
+        enfocamos en brindar un servicio al cliente excepcional para que tu hogar o empresa jamás se detenga.</p>
+
+      <div class="status-list">
+        <!-- Estado: Activo -->
+        <div class="status-item active">
+          <i class="fa-solid fa-circle-check"></i>
+          <div class="status-info">
+            <strong>Gómez Palacio, Dgo.</strong>
+            <span>Cobertura Inalámbrica Activa (Sectores seleccionados)</span>
+          </div>
+        </div>
+
+        <!-- Estado: Pendiente/Próximamente -->
+        <div class="status-item pending">
+          <i class="fa-solid fa-tower-cell"></i>
+          <div class="status-info">
+            <strong>Torreón, Coah.</strong>
+            <span>Próximamente (Expansión de red en planeación)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Representación Visual (Puede ser reemplazada por el mapa de Leaflet en el futuro) -->
+    <div class="coverage-visual">
+      <div class="map-placeholder" routerLink="/networks" routerLinkActive="active">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <h3>Nuestra Red Regional</h3>
+        <p>¿Vives en Gómez Palacio? Contáctanos por WhatsApp para validar la viabilidad técnica exacta en tu colonia.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contact">
+  <div class="container">
+    <div class="contact-box">
+      <h2>¿Listo para dar el siguiente paso tecnológico?</h2>
+      <p>Déjanos tus datos y un especialista en TI se pondrá en contacto contigo para realizar una auditoría o
+        cotización a la medida.</p>
+
+      <form [formGroup]="contactForm" (ngSubmit)="onSendContact()" class="contact-form">
+        <div class="form-group">
+          <input type="text" formControlName="nombre" placeholder="Tu Nombre">
+        </div>
+        <div class="form-group">
+          <input type="email" formControlName="email" placeholder="Correo Electrónico">
+        </div>
+        <div class="form-group">
+          <textarea formControlName="mensaje" placeholder="¿En qué solución o proyecto estás interesado?"
+            rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" [disabled]="contactForm.invalid">Enviar Mensaje</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-content">
+    <p>&copy; 2026 Cloudit Solutions MX. Todos los derechos reservados.</p>
+    <div class="footer-brands">
+      <span>Integradores Autorizados de las principales marcas del mercado corporativo y residencial.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- BOTÓN WHATSAPP FLOTANTE -->
+<a href="https://wa.me/528710000000" class="whatsapp-float" target="_blank" rel="noopener">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>

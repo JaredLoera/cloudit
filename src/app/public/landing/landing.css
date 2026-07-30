@@ -1,0 +1,633 @@
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-cloud {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1;
+}
+
+.logo-it {
+  color: var(--primary);
+}
+
+.logo-sub {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gray);
+  font-weight: 600;
+}
+
+.nav-menu a {
+  color: var(--dark);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-menu a:hover {
+  color: var(--primary);
+}
+
+.nav-menu .btn-nav {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+}
+
+.nav-menu .btn-nav:hover {
+  background-color: var(--primary-dark);
+  color: var(--white);
+}
+
+/* HERO SECTION */
+.hero {
+  padding: 6rem 0;
+  background: radial-gradient(circle at 90% 10%, rgba(0, 102, 204, 0.05) 0%, transparent 60%);
+  display: flex;
+  align-items: center;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.hero-text p {
+  font-size: 1.15rem;
+  color: var(--gray);
+  margin-bottom: 2rem;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.8rem 2rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+}
+
+.btn-primary:disabled {
+  background-color: var(--gray);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+/* INTEGRACIÓN UBIQUITI */
+.hero-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.ubiquiti-device-frame {
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition);
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  /* <--- Fondo transparente por si acaso */
+}
+
+.ubiquiti-device-frame:hover {
+  transform: scale(1.02) rotate(3deg);
+  box-shadow: 0 20px 50px rgba(0, 119, 255, 0.15);
+}
+
+.ubiquiti-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 30;
+}
+
+.led-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: rgba(0, 230, 255, 0.2);
+  box-shadow: 0 0 50px 20px rgba(0, 119, 255, 0.4);
+  z-index: 5;
+  animation: pulseLED 3s infinite;
+}
+
+@keyframes pulseLED {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+}
+
+.device-label {
+  position: absolute;
+  bottom: -30px;
+  background: var(--white);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  color: var(--dark);
+  box-shadow: var(--shadow);
+  font-size: 0.9rem;
+  z-index: 15;
+}
+
+/* SOBRE NOSOTROS */
+.about {
+  padding: 4rem 0;
+}
+
+.about-card {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-left: 5px solid var(--primary);
+}
+
+.about-card h4 {
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+
+.lead {
+  font-size: 1.3rem;
+  color: var(--primary);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* SOLUCIONES */
+.solutions {
+  padding: 6rem 0;
+  background-color: var(--white);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  color: var(--dark);
+}
+
+.section-title p {
+  color: var(--gray);
+}
+
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.solution-card {
+  background-color: var(--light);
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.solution-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+  background-color: var(--white);
+}
+
+.icon-wrapper {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.solution-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--dark);
+}
+
+.solution-card p {
+  color: var(--gray);
+  font-size: 0.95rem;
+}
+
+/* CONTACTO */
+.contact {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: var(--white);
+}
+
+.contact-box {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-box h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.contact-box p {
+  color: #94a3b8;
+  margin-bottom: 3rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid #334155;
+  background-color: #1e293b;
+  color: var(--white);
+  font-size: 1rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+}
+
+/* FOOTER */
+.footer {
+  background-color: #0f172a;
+  color: #64748b;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  border-top: 1px solid #1e293b;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* WHATSAPP FLOTANTE */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25d366;
+  color: var(--white);
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  background-color: #128c7e;
+  transform: scale(1.1) rotate(15deg);
+}
+
+/* =========================================
+   SECCIÓN DE COBERTURA REGIONAL
+   ========================================= */
+.coverage-regional {
+  padding: 6rem 0;
+  background-color: var(--light);
+}
+
+.coverage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.badge-regional {
+  display: inline-block;
+  background-color: var(--primary-dark);
+  color: var(--white);
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+}
+
+.coverage-text h2 {
+  font-size: 2.5rem;
+  color: var(--dark);
+  margin-bottom: 1rem;
+}
+
+.coverage-text p {
+  color: var(--gray);
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.coverage-text .lead {
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+/* Lista de estados de cobertura (Activo / Próximamente) */
+.status-list {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 1.5rem;
+  border-radius: var(--radius);
+  background: var(--white);
+  border-left: 5px solid;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  transition: var(--transition);
+}
+
+.status-item:hover {
+  transform: translateX(5px);
+}
+
+.status-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.status-info strong {
+  color: var(--dark);
+  font-size: 1.1rem;
+}
+
+.status-info span {
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+/* Colores dinámicos para los indicadores */
+.status-item.active {
+  border-left-color: #10b981;
+  /* Verde esmeralda */
+}
+
+.status-item.active i {
+  color: #10b981;
+  font-size: 1.5rem;
+}
+
+.status-item.pending {
+  border-left-color: #f59e0b;
+  /* Naranja/Ámbar */
+}
+
+.status-item.pending i {
+  color: #f59e0b;
+  font-size: 1.5rem;
+}
+
+/* Contenedor del Mapa / Placeholder visual */
+.coverage-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-placeholder {
+  background: var(--white);
+  width: 100%;
+  height: 400px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px dashed #cbd5e1;
+  padding: 3rem;
+  transition: var(--transition);
+}
+
+.map-placeholder:hover {
+  border-color: var(--primary);
+  background-color: rgba(0, 102, 204, 0.02);
+}
+
+.map-placeholder i {
+  font-size: 4.5rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.map-placeholder h3 {
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+/* BOTÓN HAMBURGUESA (Oculto en escritorio) */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--dark);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.menu-toggle:focus {
+  outline: none;
+}
+
+/* Responsividad para móviles */
+@media(max-width: 968px) {
+  .coverage-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .map-placeholder {
+    height: 300px;
+    padding: 2rem;
+  }
+}
+
+/* RESPONSIVE DESIGN */
+@media(max-width: 968px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2.3rem;
+  }
+
+  .hero-cta {
+    justify-content: center;
+  }
+
+ /* --- INICIO CONFIGURACIÓN MENÚ HAMBURGUESA --- */
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: flex; /* <--- ¡ESTA ES LA MAGIA QUE FALTABA! */
+    flex-direction: column; /* Ahora sí los pone en vertical */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    align-items: center;
+    padding: 2rem 0;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+    
+    /* Configuración de la animación de entrada */
+    transform: translateY(-150%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1; 
+  }
+
+  /* Clase que Angular activa cuando isMenuOpen es true */
+  .nav-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Separación vertical de los enlaces en móvil */
+  .nav-menu a {
+    margin: 1.2rem 0; /* Separación arriba y abajo */
+    margin-left: 0; /* Reseteamos el margen izquierdo que traía de escritorio */
+    font-size: 1.2rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Ajuste para el botón de contacto en móvil */
+  .nav-menu .btn-nav {
+    width: auto;
+    margin-top: 1.5rem;
+  }
+  /* --- FIN CONFIGURACIÓN MENÚ HAMBURGUESA --- */
+}

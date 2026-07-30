@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+
+/* 1. RESETEO UNIVERSAL (Soluciona el problema de las tarjetas separadas) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary: #0066cc;
+    --primary-dark: #004c99;
+    --secondary: #00d2ff;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --gray: #64748b;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --radius: 12px; /* Unifiqué a 8px según tu último código */
+    --transition: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* 2. BODY SIN OVERFLOW HIDDEN (Soluciona el problema del menú sticky) */
+body {
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+    width: 100%;
+}
+
+/* 3. COMPORTAMIENTO DE ANGULAR */
+app-root {
+    display: block;
+}
+
+/* Si tu componente Landing envuelve el menú, asegúrate de que también sea bloque */
+app-landing, app-networks {
+    display: block;
+}
